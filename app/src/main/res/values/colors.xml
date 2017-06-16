@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3f51b5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#ff4081</color>
+    <color name="button_pressed">#ff8a00</color>
+    <color name="pink">#FFC0CB</color>
+    <color name="indigo">#4b0082</color>
+    <color name="lightBlue">#add8e6</color>
+    <color name="white">#f8f8ff</color>
+    <color name="grey">#d3d3d3</color>
+    <color name="darkGreen">#006400</color>
+    <color name="lightOrange">#ead5bd</color>
+    <color name="yello">#efed8b</color>
+    <color name="year">#999999</color>
+    <color name="title">#222222</color>
+</resources>

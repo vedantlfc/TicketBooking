@@ -1,0 +1,32 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="MyButton" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/colorPrimaryDark</item>
+        <item name="colorButtonNormal">@color/lightBlue</item>
+
+    </style>
+
+    <style name="ToggleBtn" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorButtonNormal">@color/btn_clr</item>
+        <item name="android:colorControlNormal">@color/grey</item>
+        <item name="android:colorControlActivated">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
+
+
+
+    </style>
+
+    <style name="MyEditText" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlNormal">@color/indigo</item>
+        <item name="colorControlActivated">@color/lightBlue</item>
+    </style>
+
+</resources>

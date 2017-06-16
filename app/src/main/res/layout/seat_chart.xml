@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/newbus">
+
+    <ToggleButton
+        android:id="@+id/seat1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="64dp"
+        android:onClick="btnPress"
+        android:tag="1"
+        android:text="ToggleButton"
+        android:textOff="1"
+        android:textOn="1"
+        android:theme="@style/ToggleBtn" />
+
+    <ToggleButton
+        android:id="@+id/seat2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/seat1"
+        android:layout_alignBottom="@+id/seat1"
+        android:layout_toEndOf="@+id/seat1"
+        android:onClick="btnPress"
+        android:tag="2"
+        android:text="ToggleButton"
+        android:textOff="2"
+        android:textOn="2"
+        android:theme="@style/ToggleBtn" />
+
+    <ToggleButton
+        android:id="@+id/seat3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/seat4"
+        android:layout_toStartOf="@+id/seat4"
+        android:onClick="btnPress"
+        android:tag="3"
+        android:text="ToggleButton"
+        android:textOff="3"
+        android:textOn="3"
+        android:theme="@style/ToggleBtn" />
+
+    <ToggleButton
+        android:id="@+id/seat4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/seat2"
+        android:fadingEdge="horizontal|vertical"
+        android:onClick="btnPress"
+        android:tag="4"
+        android:text="ToggleButton"
+        android:textOff="4"
+        android:textOn="4"
+        android:theme="@style/ToggleBtn" />
+
+    <ToggleButton
+        android:id="@+id/seat5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/seat1"
+        android:layout_marginTop="20dp"
+        android:onClick="btnPress"
+        android:tag="5"
+        android:text="ToggleButton"
+        android:textOff="5"
+        android:textOn="5"
+        android:theme="@style/ToggleBtn" />
+
+    <ToggleButton
+        android:id="@+id/seat6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/seat5"
+        android:layout_alignBottom="@+id/seat5"
+        android:layout_toEndOf="@+id/seat5"
+        android:onClick="btnPress"
+        android:tag="6"
+        android:text="ToggleButton"
+        android:textOff="6"
+        android:textOn="6"
+        android:theme="@style/ToggleBtn" />
+
+    <ToggleButton
+        android:id="@+id/seat7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/seat6"
+        android:layout_alignBottom="@+id/seat6"
+        android:layout_alignStart="@+id/seat3"
+        android:onClick="btnPress"
+        android:tag="7"
+        android:text="ToggleButton"
+        android:textOff="7"
+        android:textOn="7"
+        android:theme="@style/ToggleBtn" />
+
+    <ToggleButton
+        android:id="@+id/seat8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/seat7"
+        android:layout_alignBottom="@+id/seat7"
+        android:layout_alignParentEnd="true"
+        android:onClick="btnPress"
+        android:tag="8"
+        android:text="ToggleButton"
+        android:textOff="8"
+        android:textOn="8"
+        android:theme="@style/ToggleBtn" />
+
+    <ToggleButton
+        android:id="@+id/seat9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/seat5"
+        android:layout_marginTop="20dp"
+        android:onClick="btnPress"
+        android:tag="9"
+        android:text="ToggleButton"
+        android:textOff="9"
+        android:textOn="9"
+        android:theme="@style/ToggleBtn" />
+
+    <ToggleButton
+        android:id="@+id/seat10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/seat9"
+        android:layout_alignBottom="@+id/seat9"
+        android:layout_toEndOf="@+id/seat9"
+        android:onClick="btnPress"
+        android:tag="10"
+        android:text="ToggleButton"
+        android:textOff="10"
+        android:textOn="10"
+        android:theme="@style/ToggleBtn" />
+
+    <ToggleButton
+        android:id="@+id/seat11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/seat10"
+        android:layout_alignBottom="@+id/seat10"
+        android:layout_alignStart="@+id/seat7"
+        android:onClick="btnPress"
+        android:tag="11"
+        android:text="ToggleButton"
+        android:textOff="11"
+        android:textOn="11"
+        android:theme="@style/ToggleBtn" />
+
+    <ToggleButton
+        android:id="@+id/seat12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/seat11"
+        android:layout_alignBottom="@+id/seat11"
+        android:layout_alignParentEnd="true"
+        android:onClick="btnPress"
+        android:tag="12"
+        android:text="ToggleButton"
+        android:textOff="12"
+        android:textOn="12"
+        android:theme="@style/ToggleBtn" />
+
+    <ToggleButton
+        android:id="@+id/seat13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/seat9"
+        android:layout_marginTop="20dp"
+        android:onClick="btnPress"
+        android:tag="13"
+        android:text="ToggleButton"
+        android:textOff="13"
+        android:textOn="13"
+        android:theme="@style/ToggleBtn" />
+
+    <ToggleButton
+        android:id="@+id/seat14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/seat13"
+        android:layout_alignBottom="@+id/seat13"
+        android:layout_toEndOf="@+id/seat13"
+        android:onClick="btnPress"
+        android:tag="14"
+        android:text="ToggleButton"
+        android:textOff="14"
+        android:textOn="14"
+        android:theme="@style/ToggleBtn" />
+
+    <ToggleButton
+        android:id="@+id/seat15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/seat14"
+        android:layout_alignBottom="@+id/seat14"
+        android:layout_alignStart="@+id/seat11"
+        android:onClick="btnPress"
+        android:tag="15"
+        android:text="ToggleButton"
+        android:textOff="15"
+        android:textOn="15"
+        android:theme="@style/ToggleBtn" />
+
+    <ToggleButton
+        android:id="@+id/seat16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/seat15"
+        android:layout_alignBottom="@+id/seat15"
+        android:layout_alignParentEnd="true"
+        android:onClick="btnPress"
+        android:tag="16"
+        android:text="ToggleButton"
+        android:textOff="16"
+        android:textOn="16"
+        android:theme="@style/ToggleBtn" />
+
+    <ToggleButton
+        android:id="@+id/seat17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/seat13"
+        android:layout_marginTop="20dp"
+        android:onClick="btnPress"
+        android:tag="17"
+        android:text="ToggleButton"
+        android:textOff="17"
+        android:textOn="17"
+        android:theme="@style/ToggleBtn" />
+
+    <ToggleButton
+        android:id="@+id/seat18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/seat17"
+        android:layout_alignBottom="@+id/seat17"
+        android:layout_toEndOf="@+id/seat17"
+        android:onClick="btnPress"
+        android:tag="18"
+        android:text="ToggleButton"
+        android:textOff="18"
+        android:textOn="18"
+        android:theme="@style/ToggleBtn" />
+
+    <ToggleButton
+        android:id="@+id/seat19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/seat18"
+        android:layout_alignBottom="@+id/seat18"
+        android:layout_alignStart="@+id/seat15"
+        android:onClick="btnPress"
+        android:tag="19"
+        android:text="ToggleButton"
+        android:textOff="19"
+        android:textOn="19"
+        android:theme="@style/ToggleBtn" />
+
+    <ToggleButton
+        android:id="@+id/seat20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/seat19"
+        android:layout_alignBottom="@+id/seat19"
+        android:layout_alignParentEnd="true"
+        android:onClick="btnPress"
+        android:tag="20"
+        android:text="ToggleButton"
+        android:textOff="20"
+        android:textOn="20"
+        android:theme="@style/ToggleBtn" />
+
+    <Button
+        android:id="@+id/confirmBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/seat19"
+        android:layout_below="@+id/seat19"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="18dp"
+        android:text="Confirm"
+        android:theme="@style/MyButton" />
+
+    <Button
+        android:id="@+id/cancelbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/confirmBtn"
+        android:layout_alignBottom="@+id/confirmBtn"
+        android:layout_alignEnd="@+id/seat18"
+        android:layout_marginEnd="33dp"
+        android:text="Cancel"
+        android:theme="@style/MyButton" />
+
+</RelativeLayout>
