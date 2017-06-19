@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+
 import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity implements Serializable{
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements Serializable{
     Button viewChartBtn;
     Button createNewBtn;
     Button flushBtn;
+
 
     DatabaseHelper mDatabaseHelper;
 
