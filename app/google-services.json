@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "126668490591",
+    "firebase_url": "https://ticket-booking-ffd77.firebaseio.com",
+    "project_id": "ticket-booking-ffd77",
+    "storage_bucket": "ticket-booking-ffd77.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:126668490591:android:29097f904b62ddf8",
+        "android_client_info": {
+          "package_name": "com.vedant.brainded.busticket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "126668490591-kg4qjnf1svqli46ipdtubbi35c5qii7v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vedant.brainded.busticket",
+            "certificate_hash": "e6978931b4755dcabbc6e35fc503970a3b588ed4"
+          }
+        },
+        {
+          "client_id": "126668490591-2vier8gjlg0bfar0fpc21j0vn2e7mb9m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAje9rR1-BxArbi3bCsVFQC4yyTFBBO-jo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "126668490591-2vier8gjlg0bfar0fpc21j0vn2e7mb9m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

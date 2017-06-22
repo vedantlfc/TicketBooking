@@ -6,7 +6,8 @@
 
     <uses-sdk android:minSdkVersion="23"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -21,13 +22,34 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
         <activity android:name=".NewPassenger"
                 android:label="@string/details_screen">
         </activity>
+
         <activity android:name=".Seating"
             android:label="@string/seat_chart">
         </activity>
+
+        <activity android:name=".SignupActivity"
+            android:label="@string/signup_screen">
+
+
+        </activity>
+
+        <activity android:name=".LoginActivity"
+            android:label="Login">
+
+
+        </activity>
+
+        <activity android:name=".ResetPasswordActivity"
+            android:label="@string/send_password_reset_email">
+
+        </activity>
+
     </application>
 
 </manifest>

@@ -105,7 +105,8 @@ public class NewPassenger extends AppCompatActivity{
     }
 
     public void onBackPressed(){
-        sendBackData();
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 
 

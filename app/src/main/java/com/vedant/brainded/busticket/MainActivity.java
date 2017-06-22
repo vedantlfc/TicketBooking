@@ -1,8 +1,10 @@
 package com.vedant.brainded.busticket;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -12,9 +14,11 @@ import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity implements Serializable{
 
-    Button viewChartBtn;
+    Button loginBtn;
     Button createNewBtn;
     Button flushBtn;
+    Intent inte;
+    Boolean loggedIn;
 
 
     DatabaseHelper mDatabaseHelper;
@@ -25,25 +29,38 @@ public class MainActivity extends AppCompatActivity implements Serializable{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        viewChartBtn = (Button) findViewById(R.id.viewChart);
+        loginBtn = (Button) findViewById(R.id.login);
         createNewBtn = (Button) findViewById(R.id.createNew);
         flushBtn = (Button) findViewById(R.id.flushBtn);
+        loggedIn = false;
+
+
+
 
         mDatabaseHelper = new DatabaseHelper(this);
 
-        viewChartBtn.setOnClickListener(new View.OnClickListener() {
+        loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Pressed", Toast.LENGTH_LONG).show();
+                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+
+                startActivityForResult(i, 2);
             }
         });
 
         createNewBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), NewPassenger.class);
+                Log.i("Loginezz", String.valueOf(loggedIn));
+                if(loggedIn){
+                    Intent i = new Intent(getApplicationContext(), NewPassenger.class);
 
-                startActivity(i);
+                    startActivity(i);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Login First!", Toast.LENGTH_LONG).show();
+                }
+
+
             }
         });
 
@@ -56,9 +73,23 @@ public class MainActivity extends AppCompatActivity implements Serializable{
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+        if (requestCode == 2) {
+            if(resultCode == Activity.RESULT_OK){
+                loggedIn = data.getExtras().getBoolean("LoggedInStatus");
+                Log.i("Loginez", String.valueOf(loggedIn));
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                Toast.makeText(getApplicationContext(), "No Result!", Toast.LENGTH_LONG).show();
+                //Write your code if there's no result
+            }
+        }
+    }
 
     public void onBackPressed(){
+        
         finish();
     }
 
