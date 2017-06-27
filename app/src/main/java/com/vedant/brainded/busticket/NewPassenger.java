@@ -13,6 +13,8 @@ import java.util.ArrayList;
  * Created by Dell on 6/8/2017.
  */
 
+//Class not used currently
+
 public class NewPassenger extends AppCompatActivity{
     EditText nameField;
     EditText emailField;

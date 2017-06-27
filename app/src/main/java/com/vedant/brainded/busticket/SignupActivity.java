@@ -77,11 +77,11 @@ public class SignupActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = inputEmail.getText().toString().trim();
+                final String email = inputEmail.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
                 //Added later*************************
-                String name = inputName.getText().toString().trim();
-                String phone = inputPhone.getText().toString().trim();
+                final String name = inputName.getText().toString().trim();
+                final String phone = inputPhone.getText().toString().trim();
 
                 if (TextUtils.isEmpty(phone)) {
                     Toast.makeText(getApplicationContext(), "Enter Phone Number!", Toast.LENGTH_SHORT).show();
@@ -125,13 +125,14 @@ public class SignupActivity extends AppCompatActivity {
                                             Toast.LENGTH_SHORT).show();
 
                                 } else {
+                                    createUser(name, phone, email);
                                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                     finish();
                                 }
                             }
                         });
 
-                createUser(name, phone, email);
+
 
 
 

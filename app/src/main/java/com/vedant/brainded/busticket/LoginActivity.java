@@ -18,6 +18,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 /**
  * Created by Dell on 6/19/2017.
@@ -30,17 +36,23 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnSignup, btnLogin, btnReset;
     private boolean loggedIn;
 
+    //*
+    private DatabaseReference mFirebaseDatabase;
+    private FirebaseDatabase mFirebaseInstance;
+    private String userId;
+    //*
+
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
 
+
         auth = FirebaseAuth.getInstance();
 
-
-        //if(auth.getCurrentUser() != null){
-        //    Log.i("Userix: ", auth.getCurrentUser().getEmail().toString());
-       //     startActivity(new Intent(getApplicationContext(), MainActivity.class));
-      //      finish();
-      //  }
+        if(auth.getCurrentUser() != null){
+            Log.i("Userix: ", auth.getCurrentUser().getEmail().toString());
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            finish();
+        }
 
 
         setContentView(R.layout.login);
@@ -56,7 +68,15 @@ public class LoginActivity extends AppCompatActivity {
         btnReset = (Button) findViewById(R.id.btn_reset_password);
         loggedIn = false;
 
-        auth = FirebaseAuth.getInstance();
+
+        //*
+        mFirebaseInstance = FirebaseDatabase.getInstance();
+
+        mFirebaseDatabase = mFirebaseInstance.getReference("users");
+
+        mFirebaseInstance.getReference("app_title").setValue("Users and Tickets");
+        //*
+
 
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = inputEmail.getText().toString();
+                final String email = inputEmail.getText().toString();
                 final String password = inputPassword.getText().toString();
 
                 if(TextUtils.isEmpty(email)){
@@ -102,6 +122,37 @@ public class LoginActivity extends AppCompatActivity {
                                     Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
                                 } else {
                                     loggedIn = true;
+                                    Query q = mFirebaseDatabase.orderByChild("email").equalTo(email);
+                                    q.addChildEventListener(new ChildEventListener() {
+                                        @Override
+                                        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                                            Customer cus = dataSnapshot.getValue(Customer.class);
+                                            userId = dataSnapshot.getKey();
+
+                                        }
+
+                                        @Override
+                                        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                                        }
+
+                                        @Override
+                                        public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                                        }
+
+                                        @Override
+                                        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                                        }
+
+                                        @Override
+                                        public void onCancelled(DatabaseError databaseError) {
+
+                                        }
+                                    });
+
+
                                     Log.i("Loginey", String.valueOf(loggedIn));
                                     backToMain();
 
@@ -119,6 +170,7 @@ public class LoginActivity extends AppCompatActivity {
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
         Log.i("Loginex", String.valueOf(loggedIn));
         i.putExtra("LoggedInStatus", loggedIn);
+        i.putExtra("UserId", userId);
         setResult(Activity.RESULT_OK, i);
         finish();
     }

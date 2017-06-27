@@ -10,15 +10,20 @@ import android.widget.Button;
 import android.widget.Toast;
 
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity implements Serializable{
 
     Button loginBtn;
-    Button createNewBtn;
+    Button newTicketBtn;
     Button flushBtn;
     Intent inte;
     Boolean loggedIn;
+    String userId;
+
+    private FirebaseAuth auth;
 
 
     DatabaseHelper mDatabaseHelper;
@@ -30,11 +35,11 @@ public class MainActivity extends AppCompatActivity implements Serializable{
         setContentView(R.layout.activity_main);
 
         loginBtn = (Button) findViewById(R.id.login);
-        createNewBtn = (Button) findViewById(R.id.createNew);
+        newTicketBtn = (Button) findViewById(R.id.createNew);
         flushBtn = (Button) findViewById(R.id.flushBtn);
         loggedIn = false;
 
-
+        auth = FirebaseAuth.getInstance();
 
 
         mDatabaseHelper = new DatabaseHelper(this);
@@ -48,12 +53,12 @@ public class MainActivity extends AppCompatActivity implements Serializable{
             }
         });
 
-        createNewBtn.setOnClickListener(new View.OnClickListener() {
+        newTicketBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i("Loginezz", String.valueOf(loggedIn));
-                if(loggedIn){
-                    Intent i = new Intent(getApplicationContext(), NewPassenger.class);
+                if(auth.getCurrentUser() != null){
+                    Intent i = new Intent(getApplicationContext(), Seating.class);
 
                     startActivity(i);
                 } else {
@@ -79,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements Serializable{
         if (requestCode == 2) {
             if(resultCode == Activity.RESULT_OK){
                 loggedIn = data.getExtras().getBoolean("LoggedInStatus");
+                userId = data.getExtras().getString("UserId");
                 Log.i("Loginez", String.valueOf(loggedIn));
             }
             if (resultCode == Activity.RESULT_CANCELED) {

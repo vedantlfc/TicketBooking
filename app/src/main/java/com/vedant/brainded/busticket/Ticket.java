@@ -8,6 +8,14 @@ public class Ticket {
     String name;
     String seatNum;
 
+    public String getName() {
+        return name;
+    }
+
+    public String getSeatNum() {
+        return seatNum;
+    }
+
     public Ticket(){
 
     }
