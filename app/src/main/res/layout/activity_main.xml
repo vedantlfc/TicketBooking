@@ -10,26 +10,28 @@
         android:layout_width="150dp"
         android:layout_height="53dp"
 
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="179dp"
+        android:layout_marginTop="129dp"
         android:text="@string/btn_login"
         android:textColor="#FFFFFF"
         android:textSize="19sp"
-        android:theme="@style/MyButton" />
+        android:theme="@style/MyButton"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
-        android:id="@+id/flushBtn"
+        android:id="@+id/logout"
 
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="53dp"
 
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:text="F"
+        android:text="LOGOUT"
         android:textColor="#FFFFFF"
         android:textSize="19sp"
-        android:theme="@style/MyButton" />
+        android:theme="@style/MyButton"
+        android:visibility="invisible"
+        android:layout_alignBaseline="@+id/login"
+        android:layout_alignBottom="@+id/login"
+        android:layout_alignStart="@+id/login" />
 
     <Button
         android:id="@+id/createNew"
@@ -40,6 +42,19 @@
         android:layout_alignStart="@+id/login"
         android:layout_below="@+id/login"
         android:text="@string/btn_book"
+        android:textColor="#FFFFFF"
+        android:textSize="19sp"
+        android:theme="@style/MyButton" />
+
+    <Button
+        android:id="@+id/viewTicket"
+
+        android:layout_width="150dp"
+        android:layout_height="53dp"
+
+        android:layout_alignStart="@+id/createNew"
+        android:layout_below="@+id/createNew"
+        android:text="My Tickets"
         android:textColor="#FFFFFF"
         android:textSize="19sp"
         android:theme="@style/MyButton" />

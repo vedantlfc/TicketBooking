@@ -44,6 +44,11 @@
 
 
         </activity>
+        <activity android:name=".TicketInfo"
+            android:label="Your Tickets">
+
+
+        </activity>
 
         <activity android:name=".ResetPasswordActivity"
             android:label="@string/send_password_reset_email">

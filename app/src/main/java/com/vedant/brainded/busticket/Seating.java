@@ -42,7 +42,7 @@ public class Seating extends AppCompatActivity implements View.OnClickListener{
 
     private LinearLayout loadingBg;
 
-    int numOfSeats = 21;
+    public static final int numOfSeats = 21;
     DatabaseHelper db;
 
 
@@ -133,16 +133,16 @@ public class Seating extends AppCompatActivity implements View.OnClickListener{
             @Override
             public void onClick(View v) {
 
-                if(pBar.getVisibility() == View.VISIBLE){
+                if(pBar.getVisibility() == View.VISIBLE){ //if screen is still loading
                     toaster("Loading!");
 
                 } else {
                     for (int i = 0; i < numOfSeats; i++) {
-                        if (seatList[i] != NULL) {
+                        if (seatList[i] != NULL) { //if seat is not already occupied
 
                             final String seatlistI = Integer.toString(seatList[i]);
 
-                            userEmail = auth.getCurrentUser().getEmail().toString();
+                            userEmail = auth.getCurrentUser().getEmail();
 
                             mTicketDB.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
@@ -155,7 +155,7 @@ public class Seating extends AppCompatActivity implements View.OnClickListener{
                                             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
                                                 Customer cus = dataSnapshot.getValue(Customer.class);
-                                                userName = cus.getName().toString();
+                                                userName = cus.getName();
                                                 userId = dataSnapshot.getKey();
                                                 Ticket ticket = new Ticket(userName, seatlistI);
 

@@ -17,8 +17,9 @@ import java.io.Serializable;
 public class MainActivity extends AppCompatActivity implements Serializable{
 
     Button loginBtn;
+    Button logoutBtn;
     Button newTicketBtn;
-    Button flushBtn;
+    Button viewTicketBtn;
     Intent inte;
     Boolean loggedIn;
     String userId;
@@ -35,8 +36,10 @@ public class MainActivity extends AppCompatActivity implements Serializable{
         setContentView(R.layout.activity_main);
 
         loginBtn = (Button) findViewById(R.id.login);
+        logoutBtn = (Button) findViewById(R.id.logout);
+
         newTicketBtn = (Button) findViewById(R.id.createNew);
-        flushBtn = (Button) findViewById(R.id.flushBtn);
+        viewTicketBtn = (Button) findViewById(R.id.viewTicket);
         loggedIn = false;
 
         auth = FirebaseAuth.getInstance();
@@ -44,10 +47,29 @@ public class MainActivity extends AppCompatActivity implements Serializable{
 
         mDatabaseHelper = new DatabaseHelper(this);
 
+        if(auth.getCurrentUser() != null){
+            loginBtn.setVisibility(View.INVISIBLE);
+            logoutBtn.setVisibility(View.VISIBLE);
+
+
+        }
+
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                auth.signOut();
+                Toast.makeText(getApplicationContext(), "Logged Out Successfully!", Toast.LENGTH_SHORT).show();
+                loginBtn.setVisibility(View.VISIBLE);
+                logoutBtn.setVisibility(View.INVISIBLE);
+
+            }
+        });
+
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+
 
                 startActivityForResult(i, 2);
             }
@@ -69,10 +91,16 @@ public class MainActivity extends AppCompatActivity implements Serializable{
             }
         });
 
-        flushBtn.setOnClickListener(new View.OnClickListener() {
+        viewTicketBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDatabaseHelper.deleteAll("users");
+
+                if(auth.getCurrentUser() != null){
+                    inte = new Intent(getApplicationContext(), TicketInfo.class);
+                    startActivity(inte);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Login First!", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
